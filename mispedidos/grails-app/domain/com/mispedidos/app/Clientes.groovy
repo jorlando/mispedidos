@@ -7,6 +7,8 @@ class Clientes {
 	Date dateCreated = new Date()
 	String telephone
 	
+	static hasMany = [pedidos:Pedidos]
+	
 	static constraints = {
 		address nullable: true
 		number nullable: true
