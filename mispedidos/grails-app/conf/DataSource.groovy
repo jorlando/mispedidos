@@ -32,7 +32,6 @@ environments {
 			String dbName = System.getenv('OPENSHIFT_APP_NAME')
 			url = "jdbc:mysql://$host:$port/$dbName"
 		
-			driverClassName = "com.mysql.jdbc.Driver"
 			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
 			username = System.getenv('OPENSHIFT_MYSQL_DB_USERNAME')
 			password = System.getenv('OPENSHIFT_MYSQL_DB_PASSWORD')
