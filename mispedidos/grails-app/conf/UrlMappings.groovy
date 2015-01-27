@@ -9,5 +9,9 @@ class UrlMappings {
 
 		"/"(view:"/index")
 		"500"(view:'/error')
+		
+		"/"(controller: "ping"){
+			action = [ GET:"ping"]
+		}
 	}
 }
