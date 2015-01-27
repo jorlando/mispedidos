@@ -25,9 +25,18 @@ environments {
     }
     production {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-            pooled = true
+			dbCreate = "update"
+			driverClassName = 'com.mysql.jdbc.Driver'
+			String host = System.getenv('OPENSHIFT_MYSQL_DB_HOST')
+			String port = System.getenv('OPENSHIFT_MYSQL_DB_PORT')
+			String dbName = System.getenv('OPENSHIFT_APP_NAME')
+			url = "jdbc:mysql://$host:$port/$dbName"
+		
+			driverClassName = "com.mysql.jdbc.Driver"
+			dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+			username = System.getenv('OPENSHIFT_MYSQL_DB_USERNAME')
+			password = System.getenv('OPENSHIFT_MYSQL_DB_PASSWORD')
+			pooled = true
             properties {
                maxActive = -1
                minEvictableIdleTimeMillis=1800000
