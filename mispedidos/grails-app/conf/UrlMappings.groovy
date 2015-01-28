@@ -13,5 +13,7 @@ class UrlMappings {
 		"/"(controller: "ping"){
 			action = [ GET:"ping"]
 		}
+		
+		"/console/$action/" { controller = "console" }
 	}
 }
